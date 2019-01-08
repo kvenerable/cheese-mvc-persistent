@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
+<head th:replace="fragments :: head"></head>
     <meta charset="UTF-8"/>
     <title></title>
-</head>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+
 <body>
 
-<form th:object="${category}" th:for="category" th:field="{category}">
-
+<form method="post" style="max-width:600px;" th:object="${category}">
+    <div class="form-group">
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field="*{name}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
 </form>
-
 </body>
 </html>

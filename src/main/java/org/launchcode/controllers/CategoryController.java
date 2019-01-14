@@ -32,7 +32,7 @@ public class CategoryController {
     public String add(Model model){
         model.addAttribute("category", new Category());
         model.addAttribute("title","Add Category");
-
+        model.addAttribute(categoryDao.findAll());
         return "category/add";
     }
 
@@ -40,13 +40,14 @@ public class CategoryController {
     public String add(Model model,
                       @ModelAttribute @Valid Category category, Errors errors){
         if(errors.hasErrors()){
+            model.addAttribute("title","Add Category");
+
             return "category/add";
         }
 
-        else{
+            model.addAttribute(categoryDao.findAll());
             categoryDao.save(category);
             return "redirect:";
         }
     }
 
-}

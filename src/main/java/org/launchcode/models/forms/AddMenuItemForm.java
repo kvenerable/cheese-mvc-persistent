@@ -37,7 +37,7 @@ public class AddMenuItemForm {
         return menuId;
     }
 
-    public void setMneuId(int menuId) {
+    public void setMenuId(int menuId) {
         this.menuId = menuId;
     }
 

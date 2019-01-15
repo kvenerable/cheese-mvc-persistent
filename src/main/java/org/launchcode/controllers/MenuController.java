@@ -47,9 +47,9 @@ public class   MenuController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String add(Model model, @ModelAttribute @Valid Menu menu, Errors error){
+    public String add(Model model, @ModelAttribute @Valid Menu menu, Errors errors){
 
-        if (error.hasErrors()){
+        if (errors.hasErrors()){
             model.addAttribute("title", "New Menu");
             return"menu/add";
         }
@@ -81,10 +81,10 @@ public class   MenuController {
 
 
     @RequestMapping(value = "add-item",method = RequestMethod.POST)
-    public String addItem(@ModelAttribute @Valid AddMenuItemForm form,Errors errors,Model model ){
+    public String addItem(Model model ,@ModelAttribute @Valid AddMenuItemForm form,Errors errors ){
 
         if(errors.hasErrors()){
-            model.addAttribute("form",form);
+            model.addAttribute("form","form");
             return "menu/add-item";
         }
 
